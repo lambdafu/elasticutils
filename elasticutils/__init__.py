@@ -987,7 +987,7 @@ class DictSearchResults(SearchResults):
     """
     def set_objects(self, hits):
         key = 'fields' if self.fields else '_source'
-        self.objects = [decorate_with_metadata(DictResult(r[key]), r)
+        self.objects = [decorate_with_metadata(DictResult(r.get(key, {})), r)
                         for r in hits]
 
 
